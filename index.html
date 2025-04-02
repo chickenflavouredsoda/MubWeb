@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUD Web Client</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="config">
+        <h2>Saved Servers</h2>
+        <select id="serverList"></select>
+        <button onclick="loadServer()">Load</button>
+        <button onclick="deleteServer()">Delete</button>
+
+        <h2>Add New Server</h2>
+        <input type="text" id="serverAddress" placeholder="Server Address">
+        <input type="number" id="serverPort" placeholder="Port">
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="saveServer()">Save Server</button>
+    </div>
+
+    <div id="mudClient">
+        <h2>MUD Client</h2>
+        <div id="output" class="scrollable"></div>
+        <input type="text" id="input" placeholder="Enter command..." onkeypress="handleInput(event)">
+        <button onclick="connect()">Connect</button>
+        <button onclick="disconnect()">Disconnect</button>
+    </div>
+
+    <h2>Auto-Mapper</h2>
+    <canvas id="mapperCanvas" width="400" height="400"></canvas>
+
+    <script src="script.js"></script>
+</body>
+</html>
