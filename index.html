@@ -7,31 +7,18 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="config">
-        <h2>Saved Servers</h2>
-        <select id="serverList"></select>
-        <button onclick="loadServer()">Load</button>
-        <button onclick="deleteServer()">Delete</button>
-
-        <h2>Add New Server</h2>
-        <input type="text" id="serverAddress" placeholder="Server Address">
-        <input type="number" id="serverPort" placeholder="Port">
-        <input type="text" id="username" placeholder="Username">
-        <input type="password" id="password" placeholder="Password">
-        <button onclick="saveServer()">Save Server</button>
+    <h1>MUD Web Client</h1>
+    
+    <div id="connection">
+        <input type="text" id="serverAddress" placeholder="WebSocket URL (e.g., wss://mudserver.com)">
+        <button onclick="connectToServer()">Connect</button>
+        <button onclick="disconnectFromServer()" disabled>Disconnect</button>
     </div>
 
-    <div id="mudClient">
-        <h2>MUD Client</h2>
-        <div id="output" class="scrollable"></div>
-        <input type="text" id="input" placeholder="Enter command..." onkeypress="handleInput(event)">
-        <button onclick="connect()">Connect</button>
-        <button onclick="disconnect()">Disconnect</button>
-    </div>
+    <div id="mudOutput"></div>
 
-    <h2>Auto-Mapper</h2>
-    <canvas id="mapperCanvas" width="400" height="400"></canvas>
-
+    <input type="text" id="userInput" placeholder="Enter command..." disabled onkeypress="sendMessage(event)">
+    
     <script src="script.js"></script>
 </body>
 </html>
